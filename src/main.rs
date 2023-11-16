@@ -2,6 +2,7 @@ mod env;
 mod gui;
 mod error;
 mod macros;
+mod utils;
 
 use crate::gui::app::MyBudget;
 
@@ -19,7 +20,7 @@ fn main() -> Result<(), IcedError> {
         Log::set_opt(Opt::Release);
     }
 
-    Log::info("Starting application...");
+    info!("Starting application...");
 
     MyBudget::run(IcedSettings {
         window: WindowSettings {

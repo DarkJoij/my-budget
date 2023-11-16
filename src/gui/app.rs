@@ -1,10 +1,10 @@
 use crate::env::store::DataStore;
 use crate::gui::flow::{Message, SElement};
+use crate::gui::scenes::get_scene;
 use crate::if_ultimate_version;
 
 use iced::{Application, Command, Theme};
 use iced::executor::Default;
-use iced::widget::Button;
 
 pub struct MyBudget {
     store: DataStore
@@ -40,9 +40,7 @@ impl Application for MyBudget {
     }
 
     fn view(&self) -> SElement<'_> {
-        Button::new("Click me!")
-            .on_press(Message::Click)
-            .into()
+        get_scene(&self.store)
     }
 
     fn theme(&self) -> Self::Theme {
